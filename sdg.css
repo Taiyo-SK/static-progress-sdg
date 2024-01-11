@@ -1,0 +1,294 @@
+/* Page layouts */
+/*#region*/
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(241, 241, 241);
+    padding-top: 5%;
+}
+
+h1, h2, h3 {
+    padding-bottom: 0.5rem;
+}
+.section-icon {
+    height: 2rem;
+    width: 2rem;
+}
+
+#footer {
+    background-color: #4d4d4d;
+    color: white;
+    min-height: 7vh;
+}
+/*#endregion*/
+
+/* navbar */
+/*#region*/
+.navbar {
+    border-bottom: 1.5px solid #4d4d4d;
+    background-color: white;
+}
+
+.dropdown-menu {
+    max-height: 90vh;
+    /* min-width: 100vh; */
+    overflow-y: scroll;
+}
+
+.list-group-item .card {
+    margin: 5%;
+    max-width: 25vh;
+    max-height: 25vh;
+}
+
+#sdg-letters {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding-left: 5%;
+}
+
+.navbar-nav {
+    --bs-nav-link-color: black;
+    --bs-nav-link-hover-color: #00adef;
+    --bs-navbar-active-color: #00adef;
+}
+
+#nav-sdg-logo {
+    width: 19%;
+    height: 6%;
+}
+
+/*#endregion */
+
+/* Overview modal */
+/*#region*/
+.modal-header {
+    flex-direction: column-reverse;
+}
+
+aside p {
+    font-family: 'Oswald', sans-serif;
+    font-size: larger;
+}
+
+#sdg-logo-wrapper {
+    max-width: 20vh;
+    max-height: 20vh; 
+}
+
+.goal-icon {
+    height: 100%;
+    width: 100%;
+}
+/*#endregion*/
+
+/* Section 1 */
+/*#region*/
+.section-1 {
+    background-color: white;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+#dashboard-header {
+    height: 100%;
+}
+
+#progress-bar-container {
+    height: 70%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#pie-chart-container {
+    width: 70%;
+    height: 70%;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#progress-bar-header {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#pie-chart-header {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+/*#endregion*/
+
+/* Section 2 */
+/*#region*/
+.section-2 {
+    background-color: white;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+/* Indicators */
+.indicators-container {
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+/*#endregion*/
+
+/* Section 3 */
+/*#region*/
+.section-3 {
+    background-color: white;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+/* Burndown */
+.burndown-container {
+    height: 60vh;
+    padding-bottom: 2rem;
+}
+/*#endregion*/
+
+/* custom goal coloring */
+/*#region*/
+canvas[data-index-number="1"], 
+span[data-index-number="1"],
+#section-icon-1[data-index-number="1"],
+#section-icon-2a[data-index-number="1"],
+#section-icon-2b[data-index-number="1"],
+#section-icon-3[data-index-number="1"] {
+    color: #e5243b;
+}
+
+canvas[data-index-number="2"], 
+span[data-index-number="2"],
+#section-icon-1[data-index-number="2"],
+#section-icon-2a[data-index-number="2"],
+#section-icon-2b[data-index-number="2"],
+#section-icon-3[data-index-number="2"] {
+    color: #dda63a;
+}
+
+canvas[data-index-number="3"], 
+span[data-index-number="3"],
+#section-icon-1[data-index-number="3"],
+#section-icon-2a[data-index-number="3"],
+#section-icon-2b[data-index-number="3"],
+#section-icon-3[data-index-number="3"] {
+    color: #4c9f38;
+}
+
+canvas[data-index-number="4"], span[data-index-number="4"],
+#section-icon-1[data-index-number="4"],
+#section-icon-2a[data-index-number="4"],
+#section-icon-2b[data-index-number="4"],
+#section-icon-3[data-index-number="4"] {
+    color: #c5192d;
+}
+canvas[data-index-number="5"], 
+span[data-index-number="5"],
+#section-icon-1[data-index-number="5"],
+#section-icon-2a[data-index-number="5"],
+#section-icon-2b[data-index-number="5"],
+#section-icon-3[data-index-number="5"] {
+    color: #ff3a21;
+}
+canvas[data-index-number="6"], 
+span[data-index-number="6"],
+#section-icon-1[data-index-number="6"],
+#section-icon-2a[data-index-number="6"],
+#section-icon-2b[data-index-number="6"],
+#section-icon-3[data-index-number="6"] {
+    color: #26bde2;
+}
+canvas[data-index-number="7"], 
+span[data-index-number="7"],
+#section-icon-1[data-index-number="7"],
+#section-icon-2a[data-index-number="7"],
+#section-icon-2b[data-index-number="7"],
+#section-icon-3[data-index-number="7"] {
+    color: #fcc30b;
+}
+canvas[data-index-number="8"], 
+span[data-index-number="8"],
+#section-icon-1[data-index-number="8"],
+#section-icon-2a[data-index-number="8"],
+#section-icon-2b[data-index-number="8"],
+#section-icon-3[data-index-number="8"] {
+    color: #a21942;
+}
+canvas[data-index-number="9"], 
+span[data-index-number="9"],
+#section-icon-1[data-index-number="9"],
+#section-icon-2a[data-index-number="9"],
+#section-icon-2b[data-index-number="9"],
+#section-icon-3[data-index-number="9"] {
+    color: #fd6925;
+}
+canvas[data-index-number="10"], 
+span[data-index-number="10"],
+#section-icon-1[data-index-number="10"],
+#section-icon-2a[data-index-number="10"],
+#section-icon-2b[data-index-number="10"],
+#section-icon-3[data-index-number="10"] {
+    color: #dd1367;
+}
+canvas[data-index-number="11"], 
+span[data-index-number="11"],
+#section-icon-1[data-index-number="11"],
+#section-icon-2a[data-index-number="11"],
+#section-icon-2b[data-index-number="11"],
+#section-icon-3[data-index-number="11"] {
+    color: #fd9d24;
+}
+canvas[data-index-number="12"], 
+span[data-index-number="12"],
+#section-icon-1[data-index-number="12"],
+#section-icon-2a[data-index-number="12"],
+#section-icon-2b[data-index-number="12"],
+#section-icon-3[data-index-number="12"] {
+    color: #bf8b2e;
+}
+canvas[data-index-number="13"], 
+span[data-index-number="13"],
+#section-icon-1[data-index-number="13"],
+#section-icon-2a[data-index-number="13"],
+#section-icon-2b[data-index-number="13"],
+#section-icon-3[data-index-number="13"] {
+    color: #3f7e44;
+}
+canvas[data-index-number="14"], 
+span[data-index-number="14"],
+#section-icon-1[data-index-number="14"],
+#section-icon-2a[data-index-number="14"],
+#section-icon-2b[data-index-number="14"],
+#section-icon-3[data-index-number="14"] {
+    color: #0a97d9;
+}
+canvas[data-index-number="15"], 
+span[data-index-number="15"],
+#section-icon-1[data-index-number="15"],
+#section-icon-2a[data-index-number="15"],
+#section-icon-2b[data-index-number="15"],
+#section-icon-3[data-index-number="15"] {
+    color: #56c02b;
+}
+canvas[data-index-number="16"], 
+span[data-index-number="16"],
+#section-icon-1[data-index-number="16"],
+#section-icon-2a[data-index-number="16"],
+#section-icon-2b[data-index-number="16"],
+#section-icon-3[data-index-number="16"] {
+    color: #00689d;
+}
+canvas[data-index-number="17"], 
+span[data-index-number="17"],
+#section-icon-1[data-index-number="17"],
+#section-icon-2a[data-index-number="17"],
+#section-icon-2b[data-index-number="17"],
+#section-icon-3[data-index-number="17"] {
+    color: #19486a;
+}
+/*#endregion*/
