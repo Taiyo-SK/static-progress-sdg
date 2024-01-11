@@ -1,5 +1,14 @@
 'use strict';
 
+/* Get the data from my json file */
+function getAllData() {
+    fetch("/goals.json")
+        .then((result) => {
+            return result.json();
+        })
+        .then((data) => console.log(data));
+}
+
 /* Section 1: Functions */
 
 let progressBar = null;
@@ -306,7 +315,7 @@ for (const inputGoal of inputGoals) {
         const inputGoalEle = inputGoal.querySelector('#spa-goal-code');
         const goalcode = inputGoalEle.dataset.indexNumber;
         
-        fetch(`/progress_data.json/${goalcode}`)
+        fetch("/goals.json")
         .then(response => response.json())
         .then(responseJson => {
             const progress_data = {
