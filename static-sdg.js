@@ -287,7 +287,7 @@ function listIndicators (indicatorsList) {
 // Fetching a specific goal's data and updating the page
 
 function getGoalData(goalNumber) {
-    fetch("/goals.json")
+    fetch("goals.json")
     .then(response => response.json())
     .then(data => {
         let goalData = data[goalNumber - 1];
@@ -307,7 +307,7 @@ function getGoalData(goalNumber) {
     
     
 function getIndicatorData(goalNumber) {
-    fetch("/indicators.json")
+    fetch("indicators.json")
     .then(response => response.json())
     .then(data => {
         let indicatorsData = data[goalNumber - 1];
