@@ -266,6 +266,24 @@ function updateDashboardText(progressCode, progressTitle, progressDescription, p
 
 };
 
+
+function listIndicators (indicatorsList) {
+    let tableRef = document.querySelector("#indicators-tb");
+
+    tableRef.innerHTML = null;
+
+    for (const indicator of indicatorsList) {
+        let newRow = tableRef.insertRow()
+        let indicatorCode = newRow.insertCell(0)
+        let indicatorDescription = newRow.insertCell(1)
+        let indicatorPercentage = newRow.insertCell(2)
+
+        indicatorCode.innerText = indicator.code,
+        indicatorDescription.innerText = indicator.description,
+        indicatorPercentage.innerText = `${Math.round(indicator.percentage)}%`
+    }
+}
+
 // Fetching a specific goal's data and updating the page
 
 function getGoalData(goalNumber) {
@@ -273,22 +291,30 @@ function getGoalData(goalNumber) {
     .then(response => response.json())
     .then(data => {
         let goalData = data[goalNumber - 1];
-        console.log(goalData);
-    
-    drawProgressBar(goalData.percentage, goalData.code);
-    drawPieChart(goalData.years, goalData.code);
-    drawBurndownChart(goalData.percentage, goalData.years, goalData.code);
-    updateDashboardText(
-        goalData.code, 
-        goalData.title,
-        goalData.description,
-        goalData.years,
-        goalData.percentage
-        );
-    // indicators
-    });
-}
 
+        drawProgressBar(goalData.percentage, goalData.code);
+        drawPieChart(goalData.years, goalData.code);
+        drawBurndownChart(goalData.percentage, goalData.years, goalData.code);
+        updateDashboardText(
+            goalData.code, 
+            goalData.title,
+            goalData.description,
+            goalData.years,
+            goalData.percentage
+        );
+    })
+}
+    
+    
+function getIndicatorData(goalNumber) {
+    fetch("/indicators.json")
+    .then(response => response.json())
+    .then(data => {
+        let indicatorsData = data[goalNumber - 1];
+        
+        listIndicators(indicatorsData.indicators);
+    })
+}
 
 // Event listeners for the list of goals in the navigation
 const inputGoals = document.querySelectorAll(".list-group-item");
@@ -299,5 +325,6 @@ for (const inputGoal of inputGoals) {
         let goalCode = inputGoalElement.dataset.indexNumber;
 
         getGoalData(goalCode);
+        getIndicatorData(goalCode);
     })
 }
