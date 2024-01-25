@@ -1,7 +1,7 @@
 'use strict';
 
 
-// Section 1: Chart Functions
+// Chart functions
 let progressBar = null;
 
 function drawProgressBar(progressPercentage, progressCode) {
@@ -284,14 +284,19 @@ function listIndicators (indicatorsList) {
     }
 }
 
-// Fetching a specific goal's data and updating the page
 
-function getGoalData(goalNumber) {
-    fetch("goals.json")
-    .then(response => response.json())
-    .then(data => {
-        let goalData = data[goalNumber - 1];
-
+// Fetch requests
+async function getGoalData(goalNumber) {
+    try {
+        const response = await fetch("goals.json");
+        
+        if (!response.ok) {
+            throw new Error("Network response for goals data was not completed.");
+        }
+        
+        const data = await response.json();
+        
+        const goalData = data[goalNumber - 1];
         drawProgressBar(goalData.percentage, goalData.code);
         drawPieChart(goalData.years, goalData.code);
         drawBurndownChart(goalData.percentage, goalData.years, goalData.code);
@@ -302,19 +307,32 @@ function getGoalData(goalNumber) {
             goalData.years,
             goalData.percentage
         );
-    })
+    } catch (error) {
+        console.error("Error during fetch:", error);
+        throw error;
+    }
 }
     
-    
-function getIndicatorData(goalNumber) {
-    fetch("indicators.json")
-    .then(response => response.json())
-    .then(data => {
-        let indicatorsData = data[goalNumber - 1];
+
+async function getIndicatorData(goalNumber) {
+    try {
+        const response = await fetch("indicators.json");
         
+        if (!response.ok) {
+            throw new Error("Network response for indicators data was not completed.");
+        }
+        
+        const data = await response.json();
+        
+        const indicatorsData = data[goalNumber - 1];
+
         listIndicators(indicatorsData.indicators);
-    })
+    } catch (error) {
+        console.error("Error during fetch:", error);
+        throw error;
+    }
 }
+
 
 // Event listeners for the list of goals in the navigation
 const inputGoals = document.querySelectorAll(".list-group-item");
